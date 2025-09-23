@@ -129,7 +129,7 @@ export default function ResourcesPage() {
 
       {/* Header */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">Git haqida ko'proq ma'lumot</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -141,7 +141,7 @@ export default function ResourcesPage() {
 
       {/* Useful Links */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4">Foydali havolalar</h2>
             <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
@@ -188,7 +188,7 @@ export default function ResourcesPage() {
 
       {/* FAQ Section */}
       <section id="faq" className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ko'p so'raladigan savollar</h2>
@@ -222,7 +222,7 @@ export default function ResourcesPage() {
 
       {/* Git Cheat Sheet */}
       <section id="cheatsheet" className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">Git Cheat Sheet</h2>
@@ -263,7 +263,7 @@ export default function ResourcesPage() {
 
       {/* Community Section */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">Jamoa bilan bog'laning</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -317,7 +317,7 @@ export default function ResourcesPage() {
 
       {/* CTA Section */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">Hali ham savollaringiz bormi?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

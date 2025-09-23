@@ -57,7 +57,7 @@ export default function PracticePage() {
 
       {/* Header */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">Git Sandbox: Buyruqlarni Sinab Ko'ring</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -83,7 +83,7 @@ export default function PracticePage() {
 
       {/* Interactive Terminal */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <InteractiveTerminal />
           </div>
@@ -92,7 +92,7 @@ export default function PracticePage() {
 
       {/* Practice Projects */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">Amaliy loyihalar</h2>

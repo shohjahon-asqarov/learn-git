@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { GitBranch, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
+import { Logo } from "@/components/logo"
 
 const footerLinks = {
   darslar: [
@@ -22,15 +23,12 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30 py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             {/* Brand */}
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <GitBranch className="h-6 w-6 text-primary" />
-                <span className="text-lg font-bold">Git O'zbek</span>
-              </div>
+              <Logo size="md" variant="gradient" className="mb-4" />
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Git'ni o'zbek tilida o'rganish uchun eng yaxshi platforma. Bepul, ochiq manba va tushunarli.
               </p>

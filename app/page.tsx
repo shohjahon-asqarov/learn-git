@@ -7,6 +7,7 @@ import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { TelegramSubscription } from "@/components/telegram-subscription"
+import { Logo } from "@/components/logo"
 
 export default function HomePage() {
   return (
@@ -16,8 +17,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 grid-bg overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
               <div className="space-y-8">
@@ -130,6 +130,9 @@ export default function HomePage() {
                           <h3 className="text-2xl font-bold text-foreground">Shohjahon</h3>
                           <p className="text-muted-foreground">Full-Stack Developer</p>
                           <p className="text-sm text-muted-foreground">Git O'zbek platformasi muallifi</p>
+                          <div className="pt-2">
+                            <Logo size="sm" variant="minimal" showText={false} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -144,13 +147,12 @@ export default function HomePage() {
                 <div className="absolute -bottom-4 -left-4 w-64 h-64 rounded-full bg-info/5 blur-3xl"></div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
       {/* Why Git Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4">Git nima uchun kerak?</h2>
             <p className="text-xl text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
@@ -207,7 +209,7 @@ export default function HomePage() {
 
       {/* Lessons Overview */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4">Darslarimiz ketma-ketligi</h2>
             <p className="text-xl text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
@@ -289,7 +291,7 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">Bugun Git'ni o'rganishni boshlang</h2>

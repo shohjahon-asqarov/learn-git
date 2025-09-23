@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -21,10 +20,10 @@ export const metadata: Metadata = {
   title: "Git O'zbek - Git'ni o'zbek tilida o'rganing",
   description:
     "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma. Bepul darslar, amaliyot va resurslar.",
-  keywords: ["git", "uzbek", "o'zbek", "dasturlash", "version control", "github"],
-  authors: [{ name: "Git O'zbek Team" }],
-  creator: "Git O'zbek",
-  publisher: "Git O'zbek",
+  keywords: ["git", "uzbek", "o'zbek", "dasturlash", "version control", "github", "shohjahon"],
+  authors: [{ name: "Shohjahon" }],
+  creator: "Shohjahon",
+  publisher: "Git O'zbek by Shohjahon",
   formatDetection: {
     email: false,
     address: false,
@@ -33,16 +32,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gitouzbek.uz"),
   openGraph: {
     title: "Git O'zbek - Git'ni o'zbek tilida o'rganing",
-    description: "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma.",
+    description: "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
     url: "https://gitouzbek.uz",
-    siteName: "Git O'zbek",
+    siteName: "Git O'zbek by Shohjahon",
     locale: "uz_UZ",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Git O'zbek - Git'ni o'zbek tilida o'rganing",
-    description: "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma.",
+    description: "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
   },
   robots: {
     index: true,
@@ -68,7 +67,6 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Suspense fallback={<div>Loading...</div>}>
           {children}
-          <Analytics />
         </Suspense>
       </body>
     </html>

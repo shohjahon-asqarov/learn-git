@@ -107,7 +107,7 @@ export default function LessonsPage() {
 
       {/* Header */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">Git'ni Noldan O'rganish</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -134,7 +134,7 @@ export default function LessonsPage() {
 
       {/* Lessons */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="max-w-6xl mx-auto">
             <div className="space-y-8">
               {lessons.map((lesson, index) => {
