@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { Inter, JetBrains_Mono, Source_Serif_4, IBM_Plex_Sans } from "next/font/google"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -13,6 +13,20 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "cyrillic"],
   variable: "--font-mono",
+  display: "swap",
+})
+
+const sourceSerifPro = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-serif",
+  display: "swap",
+})
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 })
 
@@ -63,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="uz" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="uz" className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerifPro.variable} ${ibmPlexSans.variable}`}>
       <body className="font-sans antialiased">
         <Suspense fallback={<div>Loading...</div>}>
           {children}

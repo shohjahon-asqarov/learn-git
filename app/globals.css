@@ -95,9 +95,11 @@
 }
 
 @theme inline {
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-serif: var(--font-source-serif-4), "Source Serif 4", "Times New Roman", serif;
+  --font-display: var(--font-ibm-plex-sans), "IBM Plex Sans", "Helvetica Neue", sans-serif;
 
   /* Updated color system with proper semantic tokens */
   --color-background: var(--background);
@@ -196,6 +198,38 @@
   font-weight: 700;
 }
 
+/* Blog/Education themed gradient text */
+.blog-gradient {
+  background: linear-gradient(135deg, #2563EB, #3B82F6, #06B6D4, #10B981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+/* Education-themed text */
+.education-text {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Blog-themed text */
+.blog-text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Terminal-themed text */
+.terminal-text {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
 /* Enhanced animated background grid */
 .grid-bg {
   background-image: linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
@@ -211,6 +245,103 @@
   100% {
     background-position: 50px 50px;
   }
+}
+
+/* Git-themed animated background */
+.git-bg {
+  background: 
+    radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(var(--info) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, hsl(var(--success) / 0.05) 0%, transparent 50%);
+  animation: git-pulse 8s ease-in-out infinite;
+}
+
+@keyframes git-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Code-themed floating elements */
+.code-float {
+  animation: code-float 6s ease-in-out infinite;
+}
+
+@keyframes code-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+/* Terminal cursor effect */
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s infinite;
+  color: hsl(var(--primary));
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Git commit-like card effect */
+.git-card {
+  background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card) / 0.8));
+  border: 1px solid hsl(var(--border) / 0.5);
+  box-shadow: 
+    0 4px 6px -1px hsl(var(--primary) / 0.1),
+    0 2px 4px -1px hsl(var(--primary) / 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.git-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 15px -3px hsl(var(--primary) / 0.1),
+    0 4px 6px -2px hsl(var(--primary) / 0.05);
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+/* Branch-like connecting lines */
+.branch-line {
+  position: relative;
+}
+
+.branch-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(var(--primary) / 0.3), transparent);
+  transform: translateY(-50%);
+}
+
+/* Git status indicators */
+.git-status-added {
+  color: hsl(var(--success));
+  background: hsl(var(--success) / 0.1);
+  border: 1px solid hsl(var(--success) / 0.2);
+}
+
+.git-status-modified {
+  color: hsl(var(--warning));
+  background: hsl(var(--warning) / 0.1);
+  border: 1px solid hsl(var(--warning) / 0.2);
+}
+
+.git-status-deleted {
+  color: hsl(var(--destructive));
+  background: hsl(var(--destructive) / 0.1);
+  border: 1px solid hsl(var(--destructive) / 0.2);
 }
 
 /* Added utility classes for educational theme */
