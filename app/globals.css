@@ -259,6 +259,91 @@
   }
 }
 
+@keyframes git-flow {
+  0% {
+    transform: translateX(-100px) translateY(-50px) rotate(0deg);
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px)) translateY(50px) rotate(360deg);
+    opacity: 0.03;
+  }
+}
+
+@keyframes commit-dots {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes branch-flow {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(180deg);
+    opacity: 0.05;
+  }
+}
+
+@keyframes code-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes code-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+@keyframes image-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
+  }
+}
+
+@keyframes floating-elements {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
 @keyframes grid-drift {
   0% {
     transform: translate(0, 0);
@@ -377,6 +462,34 @@
 
 .animate-terminal-typing {
   animation: terminal-typing 1s ease-in-out infinite;
+}
+
+.animate-git-flow {
+  animation: git-flow 30s linear infinite;
+}
+
+.animate-commit-dots {
+  animation: commit-dots 4s ease-in-out infinite;
+}
+
+.animate-branch-flow {
+  animation: branch-flow 25s linear infinite;
+}
+
+.animate-code-rain {
+  animation: code-rain 20s linear infinite;
+}
+
+.animate-code-float {
+  animation: code-float 3s ease-in-out infinite;
+}
+
+.animate-image-glow {
+  animation: image-glow 4s ease-in-out infinite;
+}
+
+.animate-floating-elements {
+  animation: floating-elements 6s ease-in-out infinite;
 }
 
 /* Professional hover effects */

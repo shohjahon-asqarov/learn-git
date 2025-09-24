@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono, Source_Serif_4, IBM_Plex_Sans } from "next/font/google"
 import { Suspense } from "react"
+import { ProfessionalBackground } from "@/components/professional-background"
 import "./globals.css"
 
 const inter = Inter({
@@ -78,10 +79,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz" className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerifPro.variable} ${ibmPlexSans.variable}`}>
-      <body className="font-sans antialiased">
-        <Suspense fallback={<div>Loading...</div>}>
-          {children}
-        </Suspense>
+      <body className="font-sans antialiased relative">
+        <ProfessionalBackground />
+        <div className="relative z-10">
+          <Suspense fallback={<div>Loading...</div>}>
+            {children}
+          </Suspense>
+        </div>
       </body>
     </html>
   )

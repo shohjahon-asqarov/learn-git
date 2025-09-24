@@ -1,7 +1,7 @@
 "use client"
 
 import { Section, Container, SectionHeader } from "@/components/ui/section"
-import { FAQItem } from "@/components/ui/cards"
+import { ModernAccordion } from "@/components/ui/modern-accordion"
 
 interface FAQItemData {
   question: string
@@ -44,15 +44,7 @@ export function FAQSection() {
           description="Platformamiz haqida eng ko'p so'raladigan savollar va javoblar"
         />
 
-        <div className="space-y-6">
-          {faqItems.map((faq, index) => (
-            <FAQItem
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-            />
-          ))}
-        </div>
+        <ModernAccordion items={faqItems} />
       </Container>
     </Section>
   )
