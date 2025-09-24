@@ -16,7 +16,7 @@ const features: Feature[] = [
   {
     icon: <BookOpen className="h-6 w-6 text-slate-600 dark:text-slate-400" />,
     title: "Interaktiv Darslar",
-    description: "Git'ni boshlang'ichdan professional darajagacha o'rganish uchun tushunarli va interaktiv darslar."
+    description: "Git'ni boshlang'ichdan professional darajagacha o'rganish uchun tushunarli va interaktiv darslar. (Tez kunda video darslar qo'shiladi)"
   },
   {
     icon: <Terminal className="h-6 w-6 text-slate-600 dark:text-slate-400" />,
@@ -41,7 +41,7 @@ const features: Feature[] = [
   {
     icon: <Award className="h-6 w-6 text-slate-600 dark:text-slate-400" />,
     title: "Sertifikat",
-    description: "Platformani tugatganingizdan so'ng professional sertifikat oling va bilimingizni tasdiqlang."
+    description: "Platformani tugatganingizdan so'ng professional sertifikat oling va bilimingizni tasdiqlang. (Tez kunda)"
   }
 ]
 
@@ -56,19 +56,24 @@ export function PlatformFeaturesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
+            <div 
+              key={index} 
+              className="animate-fade-in-up" 
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <FeatureCard
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
           <Button 
             size="lg" 
-            className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-slate-900 text-white font-medium px-8 h-12" 
+            className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-slate-900 text-white font-medium px-8 h-12 hover-lift hover-glow" 
             asChild
           >
             <Link href="/lessons">

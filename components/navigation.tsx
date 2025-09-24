@@ -36,24 +36,25 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+    <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 animate-fade-in-up">
       <div className="container mx-auto px-4 py-4 max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity hover-lift">
             <Logo size="md" variant="gradient" />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {navigationItems.map((item) => (
+            {navigationItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-muted-foreground hover:text-foreground transition-colors font-medium",
+                  "text-muted-foreground hover:text-foreground transition-colors font-medium hover-lift animate-fade-in-up",
                   pathname === item.href && "text-foreground",
                 )}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.name}
               </Link>

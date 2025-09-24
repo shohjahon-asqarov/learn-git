@@ -247,51 +247,157 @@
   }
 }
 
-/* Git-themed animated background */
-.git-bg {
-  background: 
-    radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, hsl(var(--info) / 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, hsl(var(--success) / 0.05) 0%, transparent 50%);
-  animation: git-pulse 8s ease-in-out infinite;
+/* Professional Git-themed animations */
+@keyframes git-pulse {
+  0%, 100% {
+    opacity: 0.02;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.05;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes git-pulse {
   0%, 100% {
+    opacity: 0.02;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.05;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes commit-flow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
     opacity: 1;
   }
-  50% {
-    opacity: 0.8;
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 
-/* Code-themed floating elements */
-.code-float {
-  animation: code-float 6s ease-in-out infinite;
-}
-
-@keyframes code-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+@keyframes terminal-typing {
+  0%, 50% {
+    border-color: transparent;
   }
-  50% {
-    transform: translateY(-10px) rotate(2deg);
+  51%, 100% {
+    border-color: currentColor;
   }
 }
 
-/* Terminal cursor effect */
-.terminal-cursor::after {
-  content: '█';
-  animation: blink 1s infinite;
-  color: hsl(var(--primary));
+/* Animation utility classes */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+  opacity: 0;
 }
 
-/* Git commit-like card effect */
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-git-pulse {
+  animation: git-pulse 3s ease-in-out infinite;
+}
+
+.animate-commit-flow {
+  animation: commit-flow 2s ease-in-out infinite;
+}
+
+.animate-terminal-typing {
+  animation: terminal-typing 1s ease-in-out infinite;
+}
+
+/* Professional hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Git-themed professional effects */
 .git-card {
   background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card) / 0.8));
   border: 1px solid hsl(var(--border) / 0.5);
@@ -307,6 +413,36 @@
     0 10px 15px -3px hsl(var(--primary) / 0.1),
     0 4px 6px -2px hsl(var(--primary) / 0.05);
   border-color: hsl(var(--primary) / 0.3);
+}
+
+/* Professional gradient text */
+.professional-gradient {
+  background: linear-gradient(135deg, #1e293b, #3b82f6, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Terminal cursor effect */
+.terminal-cursor::after {
+  content: '█';
+  animation: terminal-typing 1s infinite;
+  color: hsl(var(--primary));
+}
+
+/* Code-themed floating elements */
+.code-float {
+  animation: code-float 6s ease-in-out infinite;
+}
+
+@keyframes code-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
 }
 
 /* Branch-like connecting lines */

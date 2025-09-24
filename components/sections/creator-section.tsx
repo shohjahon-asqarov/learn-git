@@ -4,19 +4,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { User } from "lucide-react"
 import { Logo } from "@/components/logo"
+import { Section, Container, SectionHeader } from "@/components/ui/section"
 
 export function CreatorSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-slate-900 dark:text-slate-100 mb-8">
-            Platform Muallifi
-          </h2>
-          <p className="text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
-            Git Ustasi platformasi kim tomonidan yaratilgan va nima uchun
-          </p>
-        </div>
+    <Section background="gradient" className="py-24">
+      <Container maxWidth="6xl">
+        <SectionHeader
+          title="Platform Muallifi"
+          description="Git Ustasi platformasi kim tomonidan yaratilgan va nima uchun"
+          className="mb-20"
+        />
 
         <Card className="border-0 shadow-2xl bg-white dark:bg-slate-800 overflow-hidden">
           <CardContent className="p-0">
@@ -41,7 +39,6 @@ export function CreatorSection() {
                   <div className="w-full h-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center placeholder absolute inset-0" style={{ display: 'none' }}>
                     <User className="h-32 w-32 text-slate-600 dark:text-slate-400" />
                   </div>
-
                 </div>
               </div>
 
@@ -59,7 +56,7 @@ export function CreatorSection() {
                       Shohjahon
                     </h3>
                     <p className="text-2xl text-slate-600 dark:text-slate-400 font-medium">
-                      Full-Stack Developer
+                      Frontend Developer
                     </p>
                   </div>
 
@@ -82,7 +79,7 @@ export function CreatorSection() {
             </div>
           </CardContent>
         </Card>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

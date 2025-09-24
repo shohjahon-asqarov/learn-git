@@ -13,14 +13,16 @@ interface FeatureCardProps {
 export function FeatureCard({ icon, title, description, className }: FeatureCardProps) {
   return (
     <div className={cn(
-      "border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow",
+      "git-card hover-lift group cursor-pointer",
       className
     )}>
       <div className="p-6">
-        <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4">
-          {icon}
+        <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors">
+          <div className="group-hover:scale-110 transition-transform">
+            {icon}
+          </div>
         </div>
-        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {title}
         </h3>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed">

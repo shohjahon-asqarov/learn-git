@@ -647,15 +647,15 @@ export function InteractiveTerminal() {
   return (
     <div className="space-y-6">
       {/* Enhanced Terminal */}
-      <Card className="border-border bg-card/50 backdrop-blur">
+      <Card className="border-border bg-card/50 backdrop-blur git-card hover-glow animate-fade-in-up">
         <CardHeader className="pb-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center animate-git-pulse">
                 <Terminal className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <CardTitle className="text-lg">Git Terminal</CardTitle>
+                <CardTitle className="text-lg professional-gradient">Git Terminal</CardTitle>
                 <CardDescription className="text-sm">
                   {isInitialized ? (
                     <span className="flex items-center gap-2">
@@ -705,14 +705,14 @@ export function InteractiveTerminal() {
 
             {/* Enhanced input line */}
             <form onSubmit={handleSubmit} className="flex items-center mt-2">
-              <span className="text-success mr-2 font-semibold">{currentBranch}$</span>
+              <span className="text-success mr-2 font-semibold terminal-cursor">{currentBranch}$</span>
               <input
                 ref={inputRef}
                 type="text"
                 value={currentCommand}
                 onChange={(e) => setCurrentCommand(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent text-foreground outline-none"
+                className="flex-1 bg-transparent text-foreground outline-none terminal-cursor"
                 placeholder="Git buyrug'ini kiriting... (↑↓ tarix, Tab to'ldirish)"
                 autoFocus
               />

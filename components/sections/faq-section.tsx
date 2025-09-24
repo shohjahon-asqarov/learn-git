@@ -19,7 +19,7 @@ const faqItems: FAQItemData[] = [
   },
   {
     question: "Platformani tugatgandan so'ng sertifikat olamanmi?",
-    answer: "Ha, platformani muvaffaqiyatli tugatganingizdan so'ng professional sertifikat beriladi. Bu sertifikat sizning Git bilimingizni tasdiqlaydi."
+    answer: "Ha, platformani muvaffaqiyatli tugatganingizdan so'ng professional sertifikat beriladi. Bu sertifikat sizning Git bilimingizni tasdiqlaydi. (Tez kunda)"
   },
   {
     question: "Interaktiv terminal qanday ishlaydi?",
@@ -28,13 +28,17 @@ const faqItems: FAQItemData[] = [
   {
     question: "Platformani qancha vaqtda tugatish mumkin?",
     answer: "Platforma jami 2 soat kontentdan iborat. Lekin siz o'z tezligingizda o'rganishingiz mumkin. Interaktiv terminal bilan mashq qilish uchun qo'shimcha vaqt ajrating."
+  },
+  {
+    question: "Video darslar mavjudmi?",
+    answer: "Hozircha faqat matnli darslar mavjud. Video darslar tez kunda qo'shiladi va platforma yanada boyitiladi."
   }
 ]
 
 export function FAQSection() {
   return (
     <Section background="muted">
-      <Container maxWidth="4xl">
+      <Container maxWidth="6xl">
         <SectionHeader
           title="Tez-tez So'raladigan Savollar"
           description="Platformamiz haqida eng ko'p so'raladigan savollar va javoblar"

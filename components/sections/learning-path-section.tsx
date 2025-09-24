@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, GitBranch, Users, Shield, Clock, BookOpen, Terminal, Play, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import { Section, Container, SectionHeader } from "@/components/ui/section"
 
 interface LearningStep {
   step: string
@@ -54,19 +55,13 @@ const learningSteps: LearningStep[] = [
 
 export function LearningPathSection() {
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-6">
-            O'rganish Yo'li
-          </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6">
-            Git Ustasi Bo'lish Yo'li
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Har bir bosqichda real loyihalar bilan mashq qiling va professional darajaga yeting
-          </p>
-        </div>
+    <Section background="muted">
+      <Container maxWidth="6xl">
+        <SectionHeader
+          badge="O'rganish Yo'li"
+          title="Git Ustasi Bo'lish Yo'li"
+          description="Har bir bosqichda real loyihalar bilan mashq qiling va professional darajaga yeting"
+        />
 
         {/* Learning Steps */}
         <div className="space-y-8">
@@ -121,7 +116,7 @@ export function LearningPathSection() {
             </Link>
           </Button>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }
