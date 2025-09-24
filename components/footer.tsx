@@ -100,16 +100,6 @@ export function Footer() {
               </ul>
             </div>
           </div>
-
-          <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Git O'zbek. Barcha huquqlar himoyalangan.</p>
-            <p className="mt-2">
-              O'zbek dasturchilar uchun sevgi bilan yaratildi{" "}
-              <span className="text-red-500" aria-label="heart">
-                ♥
-              </span>
-            </p>
-          </div>
         </div>
       </div>
     </footer>

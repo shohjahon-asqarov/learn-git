@@ -12,7 +12,7 @@ const navigationItems = [
   {
     name: "Bosh sahifa",
     href: "/",
-    description: "Git O'zbek platformasiga xush kelibsiz",
+    description: "Git Ustasi platformasiga xush kelibsiz",
   },
   {
     name: "Darslar",
@@ -46,7 +46,7 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {navigationItems.slice(1).map((item) => (
+            {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
