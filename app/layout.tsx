@@ -31,31 +31,31 @@ const ibmPlexSans = IBM_Plex_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Git O'zbek - Git'ni o'zbek tilida o'rganing",
+  title: "Git Ustasi - Git'ni professional darajada o'rganing",
   description:
-    "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma. Bepul darslar, amaliyot va resurslar.",
-  keywords: ["git", "uzbek", "o'zbek", "dasturlash", "version control", "github", "shohjahon"],
+    "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Bepul darslar, amaliyot va resurslar.",
+  keywords: ["git", "uzbek", "o'zbek", "dasturlash", "version control", "github", "shohjahon", "ustasi"],
   authors: [{ name: "Shohjahon" }],
   creator: "Shohjahon",
-  publisher: "Git O'zbek by Shohjahon",
+  publisher: "Git Ustasi by Shohjahon",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://gitouzbek.uz"),
+  metadataBase: new URL("https://gitustasi.uz"),
   openGraph: {
-    title: "Git O'zbek - Git'ni o'zbek tilida o'rganing",
-    description: "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
-    url: "https://gitouzbek.uz",
-    siteName: "Git O'zbek by Shohjahon",
+    title: "Git Ustasi - Git'ni professional darajada o'rganing",
+    description: "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
+    url: "https://gitustasi.uz",
+    siteName: "Git Ustasi by Shohjahon",
     locale: "uz_UZ",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Git O'zbek - Git'ni o'zbek tilida o'rganing",
-    description: "Git version control tizimini o'zbek tilida o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
+    title: "Git Ustasi - Git'ni professional darajada o'rganing",
+    description: "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
   },
   robots: {
     index: true,

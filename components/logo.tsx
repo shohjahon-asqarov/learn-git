@@ -43,7 +43,7 @@ export function Logo({
         </div>
         {showText && (
           <span className={cn("font-bold text-foreground", textSize)}>
-            Git O'zbek
+            Git Ustasi
           </span>
         )}
       </div>
@@ -64,7 +64,7 @@ export function Logo({
         {showText && (
           <div className="flex flex-col">
             <span className={cn("font-bold text-foreground", textSize)}>
-              Git O'zbek
+              Git Ustasi
             </span>
             <span className="text-xs text-muted-foreground -mt-1">
               by Shohjahon
@@ -88,7 +88,7 @@ export function Logo({
       {showText && (
         <div className="flex flex-col">
           <span className={cn("font-bold text-foreground", textSize)}>
-            Git O'zbek
+            Git Ustasi
           </span>
           <span className="text-xs text-muted-foreground -mt-1">
             by Shohjahon
@@ -112,7 +112,7 @@ export function AnimatedLogo({ className }: { className?: string }) {
       </div>
       <div className="flex flex-col">
         <span className="text-2xl font-bold text-foreground animate-pulse">
-          Git O'zbek
+          Git Ustasi
         </span>
         <span className="text-sm text-muted-foreground -mt-1">
           by Shohjahon

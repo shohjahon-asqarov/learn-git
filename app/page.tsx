@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, GitBranch, Users, Shield, Clock, BookOpen, Terminal, FileText, Mail, Send, User, Star, Award, MessageCircle, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowRight, GitBranch, Users, Shield, Clock, BookOpen, Terminal, FileText, Mail, Send, User, Star, Award, MessageCircle, Github, Linkedin, Twitter, Play, CheckCircle, TrendingUp, Globe, Zap, Target, Heart } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
@@ -34,7 +34,7 @@ export default function HomePage() {
             {/* Main Headline */}
             <div className="space-y-6 mb-12">
               <h1 className="text-5xl lg:text-7xl font-bold text-balance leading-tight">
-                <span className="blog-gradient block mb-4">Git O'zbek</span>
+                <span className="blog-gradient block mb-4">Git Ustasi</span>
                 <span className="text-slate-800 dark:text-slate-200 blog-text text-4xl lg:text-5xl">
                   Dasturchining Eng Zo'r Yordamchisi
                 </span>
