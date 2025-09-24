@@ -104,22 +104,22 @@ const gitWorkflow = [
 
 const gitBenefits = [
   {
-    icon: <Zap className="h-8 w-8 text-blue-500" />,
+    icon: <Zap className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-blue-500" />,
     title: "Tezlik",
     description: "Git juda tez ishlaydi va kichik joy egallaydi"
   },
   {
-    icon: <Shield className="h-8 w-8 text-emerald-500" />,
+    icon: <Shield className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-emerald-500" />,
     title: "Xavfsizlik",
     description: "Kodning buzilishidan himoya qiladi"
   },
   {
-    icon: <Users className="h-8 w-8 text-purple-500" />,
+    icon: <Users className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-purple-500" />,
     title: "Hamkorlik",
     description: "Jamoaviy ishlashni osonlashtiradi"
   },
   {
-    icon: <History className="h-8 w-8 text-orange-500" />,
+    icon: <History className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-orange-500" />,
     title: "Tarix",
     description: "Barcha o'zgarishlarni saqlab boradi"
   }
@@ -218,21 +218,21 @@ export function GitIntroductionSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
             {gitWorkflow.map((step, index) => (
               <div key={index} className="relative animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <Card className="git-card hover-lift glassmorphism-card dark:glassmorphism-card-dark h-full">
-                  <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto mb-4 sm:mb-5">
                       {step.icon}
                     </div>
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto mb-2 sm:mb-3 text-xs sm:text-sm font-bold">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto mb-3 sm:mb-4 text-sm sm:text-base font-bold">
                       {step.step}
                     </div>
-                    <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 sm:mb-3">
+                    <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
                       {step.title}
                     </h4>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm flex-grow">
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base flex-grow">
                       {step.description}
                     </p>
                   </CardContent>
@@ -240,8 +240,8 @@ export function GitIntroductionSection() {
                 
                 {/* Arrow connector */}
                 {index < gitWorkflow.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <ArrowRight className="h-5 w-5 text-slate-400" />
+                  <div className="hidden lg:block absolute top-1/2 -right-5 transform -translate-y-1/2">
+                    <ArrowRight className="h-6 w-6 text-slate-400" />
                   </div>
                 )}
               </div>
@@ -250,8 +250,8 @@ export function GitIntroductionSection() {
         </div>
 
         {/* Git afzalliklari */}
-        <div className="mb-12 sm:mb-16">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <div className="mb-16 sm:mb-20">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-6">
               Git Afzalliklari
             </h3>
@@ -260,17 +260,17 @@ export function GitIntroductionSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-10 md:gap-12">
             {gitBenefits.map((benefit, index) => (
               <Card key={index} className="git-card hover-lift glassmorphism-card dark:glassmorphism-card-dark animate-fade-in-up h-full" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-blue-50 to-emerald-50 dark:from-blue-950/30 dark:to-emerald-950/30 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <CardContent className="p-8 sm:p-10 text-center h-full flex flex-col">
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-blue-50 to-emerald-50 dark:from-blue-950/30 dark:to-emerald-950/30 flex items-center justify-center mx-auto mb-5 sm:mb-6">
                     {benefit.icon}
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 sm:mb-3">
+                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-5">
                     {benefit.title}
                   </h4>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm flex-grow">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base flex-grow">
                     {benefit.description}
                   </p>
                 </CardContent>

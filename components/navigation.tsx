@@ -84,7 +84,7 @@ export const Navigation = memo(() => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="hover:opacity-80 transition-opacity hover-lift">
-            <Logo size="sm" variant="gradient" />
+            <Logo size="md" variant="gradient" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -103,11 +103,11 @@ export const Navigation = memo(() => {
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden p-2"
+            className="md:hidden p-2 flex items-center justify-center"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <div className="relative w-6 h-6">
+            <div className="relative w-6 h-6 flex items-center justify-center">
               <Menu className={cn(
                 "absolute inset-0 h-5 w-5 transition-all duration-300",
                 isOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
@@ -136,7 +136,7 @@ export const Navigation = memo(() => {
                     "block py-3 px-4 transition-all duration-300 group relative rounded-lg",
                     "hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50",
                     pathname === item.href
-                      ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500"
+                      ? "text-blue-600 dark:text-blue-400 border-l-4 border-blue-500"
                       : "text-slate-600 dark:text-slate-400",
                   )}
                   style={{ 
@@ -149,11 +149,6 @@ export const Navigation = memo(() => {
                     <div className="text-sm text-slate-500 dark:text-slate-400 leading-tight">
                       {item.description}
                     </div>
-
-                    {/* Active indicator */}
-                    {pathname === item.href && (
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-blue-500 via-emerald-500 to-purple-500 rounded-r-full"></div>
-                    )}
                   </div>
                 </Link>
               ))}

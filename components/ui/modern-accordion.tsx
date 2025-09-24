@@ -16,7 +16,7 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
   return (
     <div 
       className={cn(
-        "git-card hover-lift cursor-pointer overflow-hidden transition-all duration-300",
+        "git-card hover-lift cursor-pointer overflow-hidden transition-all duration-500 ease-in-out",
         isOpen && "ring-2 ring-blue-500/20 shadow-lg"
       )}
       onClick={onToggle}
@@ -25,7 +25,7 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className={cn(
-              "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300",
+              "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out",
               isOpen 
                 ? "bg-blue-500 text-white" 
                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
@@ -33,7 +33,7 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
               <HelpCircle className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
             <h3 className={cn(
-              "text-base sm:text-lg font-semibold transition-colors duration-300",
+              "text-base sm:text-lg font-semibold transition-colors duration-500 ease-in-out",
               isOpen 
                 ? "text-blue-600 dark:text-blue-400" 
                 : "text-slate-900 dark:text-slate-100"
@@ -42,7 +42,7 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
             </h3>
           </div>
           <div className={cn(
-            "transition-transform duration-300",
+            "transition-transform duration-500 ease-in-out",
             isOpen && "rotate-180"
           )}>
             {isOpen ? (
@@ -54,7 +54,7 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
         </div>
         
         <div className={cn(
-          "overflow-hidden transition-all duration-300 ease-in-out",
+          "overflow-hidden transition-all duration-500 ease-in-out",
           isOpen ? "max-h-96 opacity-100 mt-3 sm:mt-4" : "max-h-0 opacity-0"
         )}>
           <div className="pl-11 sm:pl-14">
