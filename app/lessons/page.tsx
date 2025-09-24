@@ -101,13 +101,13 @@ const lessons = [
 
 export default function LessonsPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       {/* Navigation */}
       <Navigation />
 
       {/* Header */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">Git'ni Noldan O'rganish</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -133,21 +133,21 @@ export default function LessonsPage() {
       </section>
 
       {/* Lessons */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-20">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="max-w-6xl mx-auto">
-            <div className="space-y-8">
+            <div className="space-y-12">
               {lessons.map((lesson, index) => {
                 const Icon = lesson.icon
                 return (
-                  <Card key={lesson.id} className="border-border bg-card/50 backdrop-blur overflow-hidden">
-                    <CardHeader className="pb-4">
-                      <div className="flex items-start gap-4">
+                  <Card key={lesson.id} className="border-border glassmorphism-card dark:glassmorphism-card-dark backdrop-blur overflow-hidden">
+                    <CardHeader className="pb-8">
+                      <div className="flex items-start gap-6">
                         <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <Icon className="h-8 w-8 text-primary" />
                         </div>
                         <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
+                          <div className="flex items-center gap-4 mb-4">
                             <Badge variant="outline" className="text-xs font-mono">
                               {String(lesson.id).padStart(2, "0")}
                             </Badge>
@@ -158,13 +158,13 @@ export default function LessonsPage() {
                               {lesson.duration}
                             </Badge>
                           </div>
-                          <CardTitle className="text-2xl mb-2">{lesson.title}</CardTitle>
+                          <CardTitle className="text-2xl mb-4">{lesson.title}</CardTitle>
                           <CardDescription className="text-base">{lesson.description}</CardDescription>
                         </div>
-                        <Button size="sm" className="flex-shrink-0" asChild>
-                          <Link href={`/lessons/${lesson.id}`}>
-                            <Play className="h-4 w-4 mr-2" />
-                            Boshlash
+                        <Button size="sm" className="flex-shrink-0 hover-lift git-card" asChild>
+                          <Link href="/practice">
+                            <Terminal className="h-4 w-4 mr-2" />
+                            Terminal Demo
                           </Link>
                         </Button>
                       </div>
@@ -179,10 +179,10 @@ export default function LessonsPage() {
                           <TabsTrigger value="practice">Amaliyot</TabsTrigger>
                         </TabsList>
 
-                        <TabsContent value="overview" className="mt-6">
+                        <TabsContent value="overview" className="mt-8">
                           <div>
-                            <h4 className="font-semibold mb-3">Dars mavzulari:</h4>
-                            <ul className="space-y-2">
+                            <h4 className="font-semibold mb-4">Dars mavzulari:</h4>
+                            <ul className="space-y-3">
                               {lesson.topics.map((topic, topicIndex) => (
                                 <li key={topicIndex} className="flex items-center gap-2 text-sm">
                                   <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
@@ -193,35 +193,35 @@ export default function LessonsPage() {
                           </div>
                         </TabsContent>
 
-                        <TabsContent value="commands" className="mt-6">
-                          <div className="space-y-4">
-                            <h4 className="font-semibold mb-3">Asosiy buyruqlar:</h4>
+                        <TabsContent value="commands" className="mt-8">
+                          <div className="space-y-6">
+                            <h4 className="font-semibold mb-4">Asosiy buyruqlar:</h4>
                             {lesson.commands.map((cmd, cmdIndex) => (
-                              <div key={cmdIndex} className="border border-border rounded-lg p-4 bg-muted/30">
-                                <code className="text-sm font-mono bg-primary/10 px-2 py-1 rounded text-primary">
+                              <div key={cmdIndex} className="border border-border rounded-lg p-6 bg-muted/30">
+                                <code className="text-sm font-mono bg-primary/10 px-3 py-2 rounded text-primary">
                                   {cmd.command}
                                 </code>
-                                <p className="text-sm text-muted-foreground mt-2">{cmd.description}</p>
+                                <p className="text-sm text-muted-foreground mt-3">{cmd.description}</p>
                               </div>
                             ))}
                           </div>
                         </TabsContent>
 
-                        <TabsContent value="example" className="mt-6">
-                          <div className="border border-border rounded-lg p-6 bg-muted/30">
-                            <h4 className="font-semibold mb-3">Hayotiy misol:</h4>
+                        <TabsContent value="example" className="mt-8">
+                          <div className="border border-border rounded-lg p-8 bg-muted/30">
+                            <h4 className="font-semibold mb-4">Hayotiy misol:</h4>
                             <p className="text-muted-foreground leading-relaxed">{lesson.example}</p>
                           </div>
                         </TabsContent>
 
-                        <TabsContent value="practice" className="mt-6">
-                          <div className="border border-border rounded-lg p-6 bg-primary/5 border-primary/20">
-                            <h4 className="font-semibold mb-3 text-primary">Amaliy mashq:</h4>
-                            <p className="text-muted-foreground leading-relaxed mb-4">{lesson.practice}</p>
-                            <Button variant="outline" size="sm" asChild>
-                              <Link href={`/lessons/${lesson.id}/practice`}>
+                        <TabsContent value="practice" className="mt-8">
+                          <div className="border border-primary/20 rounded-lg p-8 bg-primary/5">
+                            <h4 className="font-semibold mb-4 text-primary">Amaliy mashq:</h4>
+                            <p className="text-muted-foreground leading-relaxed mb-6">{lesson.practice}</p>
+                            <Button variant="outline" size="sm" className="hover-lift git-card" asChild>
+                              <Link href="/practice">
                                 <Terminal className="h-4 w-4 mr-2" />
-                                Amaliyot maydonchasi
+                                Terminal Demo
                               </Link>
                             </Button>
                           </div>
@@ -234,8 +234,8 @@ export default function LessonsPage() {
             </div>
 
             {/* Progress Section */}
-            <div className="mt-16 text-center">
-              <Card className="border-border bg-card/50 backdrop-blur max-w-2xl mx-auto">
+            <div className="mt-20 text-center">
+              <Card className="border-border glassmorphism-card dark:glassmorphism-card-dark backdrop-blur max-w-2xl mx-auto">
                 <CardHeader>
                   <CardTitle className="text-2xl">Tayyor Git ustasiga aylanishga?</CardTitle>
                   <CardDescription className="text-base">
@@ -243,14 +243,14 @@ export default function LessonsPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" asChild>
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                    <Button size="lg" className="hover-lift hover-glow" asChild>
                       <Link href="/practice">
-                        Amaliyot maydonchasi
+                        Terminal Demo
                         <Terminal className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
-                    <Button size="lg" variant="outline" asChild>
+                    <Button size="lg" variant="outline" className="hover-lift git-card" asChild>
                       <Link href="/resources">
                         Qo'shimcha resurslar
                         <FileText className="ml-2 h-5 w-5" />

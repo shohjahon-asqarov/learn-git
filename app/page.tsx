@@ -3,6 +3,7 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/hero-section"
+import { GitIntroductionSection } from "@/components/sections/git-introduction-section"
 import { LearningPathSection } from "@/components/sections/learning-path-section"
 import { StatsSection } from "@/components/sections/stats-section"
 // import { TestimonialsSection } from "@/components/sections/testimonials-section"
@@ -12,9 +13,10 @@ import { CreatorSection } from "@/components/sections/creator-section"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <div className="min-h-screen text-slate-900 dark:text-slate-100">
       <Navigation />
       <HeroSection />
+      <GitIntroductionSection />
       <LearningPathSection />
       <StatsSection />
       {/* <TestimonialsSection /> */}

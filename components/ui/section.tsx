@@ -80,7 +80,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <div className={cn(
-      "container mx-auto px-4 relative z-10",
+      "container mx-auto px-6 relative z-10",
       maxWidthVariants[maxWidth],
       className
     )}>
@@ -105,20 +105,20 @@ export function SectionHeader({
   badge 
 }: SectionHeaderProps) {
   return (
-    <div className={cn("text-center mb-16", className)}>
+    <div className={cn("text-center mb-20", className)}>
       {badge && (
-        <div className="mb-6">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 animate-fade-in-up">
+        <div className="mb-8">
+          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 animate-fade-in-up">
             {badge}
           </span>
         </div>
       )}
       {subtitle && (
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           {subtitle}
         </p>
       )}
-      <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+      <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
         {title}
       </h2>
       {description && (
