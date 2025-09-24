@@ -64,7 +64,7 @@ export function LearningPathSection() {
         />
 
         {/* Learning Steps */}
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-6 md:space-y-8">
           {learningSteps.map((item, index) => {
             const Icon = item.icon
             const isCompleted = item.status === "completed"
@@ -72,16 +72,16 @@ export function LearningPathSection() {
             const isLocked = item.status === "locked"
             
             return (
-              <div key={index} className="flex items-center gap-6 p-6 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+              <div key={index} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center ${
                   isCompleted ? 'bg-slate-900 dark:bg-slate-100' : 
                   isCurrent ? 'bg-slate-600 dark:bg-slate-400' : 
                   'bg-slate-200 dark:bg-slate-700'
                 }`}>
                   {isLocked ? (
-                    <div className="w-4 h-4 border-2 border-slate-400 rounded-full"></div>
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-slate-400 rounded-full"></div>
                   ) : (
-                    <Icon className={`h-6 w-6 ${
+                    <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${
                       isCompleted ? 'text-white dark:text-slate-900' : 
                       isCurrent ? 'text-white' : 
                       'text-slate-400'
@@ -89,25 +89,25 @@ export function LearningPathSection() {
                   )}
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
                     <Badge variant="outline" className="text-xs">
                       {item.step}
                     </Badge>
-                    {isCompleted && <CheckCircle className="h-4 w-4 text-slate-500" />}
-                    {isCurrent && <Play className="h-4 w-4 text-slate-500" />}
+                    {isCompleted && <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-slate-500" />}
+                    {isCurrent && <Play className="h-3 w-3 sm:h-4 sm:w-4 text-slate-500" />}
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">{item.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400">{item.description}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">{item.title}</h3>
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">{item.description}</p>
                 </div>
               </div>
             )
           })}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-10 md:mt-12">
           <Button 
             size="lg" 
-            className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-slate-900 text-white font-medium px-8 h-12" 
+            className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-slate-900 text-white font-medium px-6 sm:px-8 h-10 sm:h-12 text-sm sm:text-base" 
             asChild
           >
             <Link href="/lessons">

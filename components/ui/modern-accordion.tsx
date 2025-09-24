@@ -21,19 +21,19 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
       )}
       onClick={onToggle}
     >
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <div className={cn(
-              "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
+              "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300",
               isOpen 
                 ? "bg-blue-500 text-white" 
                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
             )}>
-              <HelpCircle className="h-5 w-5" />
+              <HelpCircle className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
             <h3 className={cn(
-              "text-lg font-semibold transition-colors duration-300",
+              "text-base sm:text-lg font-semibold transition-colors duration-300",
               isOpen 
                 ? "text-blue-600 dark:text-blue-400" 
                 : "text-slate-900 dark:text-slate-100"
@@ -46,20 +46,20 @@ function ModernAccordionItem({ question, answer, index, isOpen, onToggle }: Mode
             isOpen && "rotate-180"
           )}>
             {isOpen ? (
-              <ChevronUp className="h-5 w-5 text-blue-500" />
+              <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
             ) : (
-              <ChevronDown className="h-5 w-5 text-slate-400" />
+              <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
             )}
           </div>
         </div>
         
         <div className={cn(
           "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+          isOpen ? "max-h-96 opacity-100 mt-3 sm:mt-4" : "max-h-0 opacity-0"
         )}>
-          <div className="pl-14">
-            <div className="h-px bg-gradient-to-r from-blue-500/20 to-transparent mb-4"></div>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <div className="pl-11 sm:pl-14">
+            <div className="h-px bg-gradient-to-r from-blue-500/20 to-transparent mb-3 sm:mb-4"></div>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
               {answer}
             </p>
           </div>
@@ -84,7 +84,7 @@ export function ModernAccordion({ items }: ModernAccordionProps) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       {items.map((item, index) => (
         <div 
           key={index}

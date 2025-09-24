@@ -54,7 +54,7 @@ export function PlatformFeaturesSection() {
           description="Git'ni professional darajada o'rganish uchun barcha kerakli vositalar"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -70,10 +70,10 @@ export function PlatformFeaturesSection() {
           ))}
         </div>
 
-        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+        <div className="text-center mt-8 sm:mt-10 md:mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
           <Button 
             size="lg" 
-            className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-slate-900 text-white font-medium px-8 h-12 hover-lift hover-glow" 
+            className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 dark:text-slate-900 text-white font-medium px-6 sm:px-8 h-10 sm:h-12 hover-lift hover-glow text-sm sm:text-base" 
             asChild
           >
             <Link href="/lessons">

@@ -22,7 +22,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section className={cn(
-      "py-20 relative overflow-hidden",
+      "py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 relative overflow-hidden", // Mobile uchun kichikroq padding
       backgroundVariants[background],
       className
     )}>
@@ -80,7 +80,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <div className={cn(
-      "container mx-auto px-6 relative z-10",
+      "container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10", // Mobile uchun kichikroq padding
       maxWidthVariants[maxWidth],
       className
     )}>
@@ -105,24 +105,24 @@ export function SectionHeader({
   badge 
 }: SectionHeaderProps) {
   return (
-    <div className={cn("text-center mb-20", className)}>
+    <div className={cn("text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 xl:mb-20", className)}> {/* Mobile uchun kichikroq margin */}
       {badge && (
-        <div className="mb-8">
-          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 animate-fade-in-up">
+        <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8"> {/* Mobile uchun kichikroq margin */}
+          <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 animate-fade-in-up"> {/* Mobile uchun kichikroq padding va text */}
             {badge}
           </span>
         </div>
       )}
       {subtitle && (
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 mb-3 sm:mb-4 md:mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}> {/* Mobile uchun kichikroq text va margin */}
           {subtitle}
         </p>
       )}
-      <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4 md:mb-6 lg:mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}> {/* Mobile uchun kichikroq text va margin */}
         {title}
       </h2>
       {description && (
-        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up px-4 sm:px-0" style={{ animationDelay: '0.3s' }}>
           {description}
         </p>
       )}

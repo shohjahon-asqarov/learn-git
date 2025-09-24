@@ -3,6 +3,148 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Performance Optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimized Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gitPulse {
+  0%, 100% { 
+    opacity: 0.4; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.05); 
+  }
+}
+
+@keyframes codeFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% { 
+    transform: translateY(-5px) rotate(180deg);
+  }
+}
+
+@keyframes floatingElements {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+  }
+  50% { 
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+/* Performance Optimized Animation Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-git-pulse {
+  animation: gitPulse 3s ease-in-out infinite;
+}
+
+.animate-code-float {
+  animation: codeFloat 3s ease-in-out infinite;
+}
+
+.animate-floating-elements {
+  animation: floatingElements 6s ease-in-out infinite;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gridDrift {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(50px) translateY(50px); }
+}
+
+.animate-grid-drift {
+  animation: gridDrift 30s linear infinite;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-git-pulse,
+  .animate-code-float,
+  .animate-floating-elements,
+  .animate-grid-pulse,
+  .animate-float-elements,
+  .animate-grid-drift,
+  .animate-slide-in-left {
+    animation: none;
+  }
+  
+  .animate-fade-in-up {
+    opacity: 1;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+/* GPU Acceleration */
+.git-card,
+.hover-lift,
+.hover-glow,
+.glassmorphism-card,
+.glassmorphism-nav {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimized Transitions */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-opacity {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.transition-transform {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Minimalism Background */
 body {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);

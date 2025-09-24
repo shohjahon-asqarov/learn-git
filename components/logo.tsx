@@ -17,15 +17,15 @@ export function Logo({
   variant = "default" 
 }: LogoProps) {
   const sizeClasses = {
-    sm: "h-6 w-6",
-    md: "h-8 w-8", 
-    lg: "h-12 w-12"
+    sm: "h-5 w-5 sm:h-6 sm:w-6",
+    md: "h-6 w-6 sm:h-8 sm:w-8", 
+    lg: "h-8 w-8 sm:h-12 sm:w-12"
   }
 
   const textSizeClasses = {
-    sm: "text-lg",
-    md: "text-xl",
-    lg: "text-3xl"
+    sm: "text-sm sm:text-base",
+    md: "text-base sm:text-lg",
+    lg: "text-lg sm:text-2xl"
   }
 
   const iconSize = sizeClasses[size]
@@ -42,7 +42,7 @@ export function Logo({
           <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
         </div>
         {showText && (
-          <span className={cn("font-bold text-foreground", textSize)}>
+          <span className={cn("font-bold text-foreground hidden xs:block", textSize)}>
             Git Ustasi
           </span>
         )}
