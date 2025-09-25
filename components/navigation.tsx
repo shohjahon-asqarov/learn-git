@@ -31,47 +31,34 @@ const navigationItems = [
   },
 ]
 
-const NavigationLink = memo(({ item, index, pathname }: { item: typeof navigationItems[0], index: number, pathname: string }) => (
-  <Link
-    key={item.href}
-    href={item.href}
-    className={cn(
-      "relative px-5 py-3 md:px-6 md:py-4 font-medium transition-all duration-300 group",
-      "hover:text-slate-900 dark:hover:text-slate-100",
-      pathname === item.href 
-        ? "text-blue-600 dark:text-blue-400" 
-        : "text-slate-600 dark:text-slate-400"
-    )}
-  >
-    <div className="relative">
-      <span className="relative z-10 text-base md:text-lg">{item.name}</span>
+const NavigationLink = memo(({ item, pathname }: { item: (typeof navigationItems)[0]; pathname: string }) => {
+  const isActive = pathname === item.href
 
-      {/* Active underline with animations */}
-      <div className={cn(
-        "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-emerald-500 to-purple-500 transition-all duration-300",
-        pathname === item.href
-          ? "w-full opacity-100"
-          : "w-0 opacity-0"
-      )}></div>
+  return (
+    <Link
+      href={item.href}
+      className={cn(
+        "relative px-4 py-2 font-medium transition-all duration-300 rounded-lg hover-lift",
+        "hover:bg-blue-50 hover:shadow-md hover:scale-105",
+        isActive ? "text-blue-600 bg-blue-50 shadow-md scale-105" : "text-slate-700 hover:text-blue-600",
+      )}
+    >
+      {item.name}
+      {isActive && (
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full animate-scale-x"></div>
+      )}
+    </Link>
+  )
+})
 
-      {/* Hover underline */}
-      <div className={cn(
-        "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-slate-400 to-slate-600 dark:from-slate-500 dark:to-slate-400 transition-all duration-300",
-        "group-hover:w-full group-hover:opacity-100",
-        pathname === item.href ? "opacity-0" : "opacity-0"
-      )}></div>
-    </div>
-  </Link>
-))
-
-NavigationLink.displayName = 'NavigationLink'
+NavigationLink.displayName = "NavigationLink"
 
 export const Navigation = memo(() => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
   const toggleMenu = useCallback(() => {
-    setIsOpen(prev => !prev)
+    setIsOpen((prev) => !prev)
   }, [])
 
   const closeMenu = useCallback(() => {
@@ -79,85 +66,65 @@ export const Navigation = memo(() => {
   }, [])
 
   return (
-    <nav className="border-b border-border glassmorphism-nav dark:glassmorphism-nav-dark sticky top-0 z-50">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 max-w-7xl">
+    <nav className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-xl shadow-sm animate-slide-down">
+      <div className="container mx-auto px-4 py-3 max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="hover:opacity-80 transition-opacity hover-lift">
-            <Logo size="md" variant="gradient" />
+          <Link href="/" className="hover:opacity-80 transition-all duration-300 hover:scale-105">
+            <Logo size="md" variant="professional" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-2">
             {navigationItems.map((item, index) => (
-              <NavigationLink 
-                key={item.href}
-                item={item} 
-                index={index} 
-                pathname={pathname} 
-              />
+              <div key={item.href} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <NavigationLink item={item} pathname={pathname} />
+              </div>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden p-2 flex items-center justify-center"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <div className="relative w-6 h-6 flex items-center justify-center">
-              <Menu className={cn(
-                "absolute inset-0 h-5 w-5 transition-all duration-300",
-                isOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
-              )} />
-              <X className={cn(
-                "absolute inset-0 h-5 w-5 transition-all duration-300",
-                isOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"
-              )} />
-            </div>
-          </Button>
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden hover:bg-blue-50 hover:scale-105 transition-all duration-300"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
 
-        {/* Mobile Navigation - Smooth Slide */}
-        <div className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-80 opacity-100 mt-3" : "max-h-0 opacity-0 mt-0"
-        )}>
-          <div className="border-t border-border pt-3 pb-2">
-            <div className="space-y-2">
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden mt-3 pt-3 border-t animate-fade-in-up">
+            <div className="space-y-1">
               {navigationItems.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={closeMenu}
                   className={cn(
-                    "block py-3 px-4 transition-all duration-300 group relative rounded-lg",
-                    "hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+                    "block py-3 px-4 rounded-lg transition-all duration-300 hover-lift",
+                    "hover:bg-blue-50 hover:shadow-md",
                     pathname === item.href
-                      ? "text-blue-600 dark:text-blue-400 border-l-4 border-blue-500"
-                      : "text-slate-600 dark:text-slate-400",
+                      ? "text-blue-600 bg-blue-50 shadow-md"
+                      : "text-slate-700 hover:text-blue-600",
+                    "animate-slide-in-left",
                   )}
-                  style={{ 
-                    animationDelay: `${index * 0.05}s`,
-                    animation: isOpen ? 'slideInLeft 0.2s ease-out forwards' : 'none'
-                  }}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="relative">
-                    <div className="font-semibold text-base mb-1">{item.name}</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400 leading-tight">
-                      {item.description}
-                    </div>
-                  </div>
+                  <div className="font-medium">{item.name}</div>
+                  <div className="text-sm text-slate-500">{item.description}</div>
                 </Link>
               ))}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   )
 })
 
-Navigation.displayName = 'Navigation'
+Navigation.displayName = "Navigation"

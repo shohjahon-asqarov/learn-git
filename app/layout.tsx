@@ -47,7 +47,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gitustasi.uz"),
   openGraph: {
     title: "Git Ustasi - Git'ni professional darajada o'rganing",
-    description: "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
+    description:
+      "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
     url: "https://gitustasi.uz",
     siteName: "Git Ustasi by Shohjahon",
     locale: "uz_UZ",
@@ -56,7 +57,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Git Ustasi - Git'ni professional darajada o'rganing",
-    description: "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
+    description:
+      "Git version control tizimini professional darajada o'rganish uchun eng yaxshi platforma. Shohjahon tomonidan yaratilgan.",
   },
   robots: {
     index: true,
@@ -69,7 +71,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -78,13 +80,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="uz" className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerifPro.variable} ${ibmPlexSans.variable}`}>
+    <html
+      lang="uz"
+      className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerifPro.variable} ${ibmPlexSans.variable}`}
+      suppressHydrationWarning
+    >
       <body className="font-sans antialiased relative">
         <ProfessionalBackground />
         <div className="relative z-10">
-          <Suspense fallback={<div>Loading...</div>}>
-            {children}
-          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
         </div>
       </body>
     </html>

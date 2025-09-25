@@ -655,7 +655,9 @@ export function InteractiveTerminal() {
                 <Terminal className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <CardTitle className="text-lg professional-gradient">Git Terminal</CardTitle>
+                <CardTitle className="text-lg text-slate-900 dark:text-slate-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                  Git Terminal
+                </CardTitle>
                 <CardDescription className="text-sm">
                   {isInitialized ? (
                     <span className="flex items-center gap-2">

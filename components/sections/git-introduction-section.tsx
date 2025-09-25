@@ -1,276 +1,137 @@
 "use client"
 
-import { Section, Container, SectionHeader } from "@/components/ui/section"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { 
-  GitBranch, 
-  Users, 
-  History, 
-  Shield, 
-  Zap, 
-  Globe, 
-  Code, 
-  FileText,
-  CheckCircle,
+import { Button } from "@/components/ui/button"
+import {
+  GitBranch,
+  Users,
+  Shield,
+  Zap,
   ArrowRight,
-  BookOpen,
-  Terminal,
+  CheckCircle,
   GitCommit,
   GitMerge,
-  GitPullRequest
+  History,
+  Globe,
+  Lock,
+  Workflow,
 } from "lucide-react"
+import { Section, Container, SectionHeader } from "@/components/ui/section"
+import Link from "next/link"
 
-const gitConcepts = [
+const gitBenefits = [
   {
-    icon: <GitBranch className="h-6 w-6 text-blue-500" />,
-    title: "Version Control",
-    description: "Git - bu kodning har bir o'zgarishini saqlab boruvchi tizim. Har bir o'zgarishni 'commit' deb ataladi.",
-    example: "Kitob yozayotganingizda har bir bobni alohida saqlab qo'yganingiz kabi."
+    icon: <GitBranch className="h-8 w-8 text-blue-500" />,
+    title: "Distributed",
+    description: "Har bir dasturchi to'liq tarixga ega. Markaziy server kerak emas.",
   },
   {
-    icon: <History className="h-6 w-6 text-emerald-500" />,
-    title: "Tarix Saqlash",
-    description: "Git barcha o'zgarishlarni tarixda saqlaydi. Istalgan vaqtda eski versiyaga qaytish mumkin.",
-    example: "Vaqt mashinasiga ega bo'lish kabi - istalgan vaqtda orqaga qaytish."
+    icon: <Users className="h-8 w-8 text-emerald-500" />,
+    title: "Jamoaviy ish",
+    description: "Bir nechta dasturchi bir vaqtda ishlashi mumkin, konfliktlar hal qilinadi.",
   },
   {
-    icon: <Users className="h-6 w-6 text-purple-500" />,
-    title: "Jamoaviy Ishlash",
-    description: "Bir necha dasturchi bir loyihada ishlay oladi. Git ularning ishlarini birlashtiradi.",
-    example: "Bir necha kishi bir kitob yozayotgani kabi, har biri o'z bobini yozadi."
-  },
-  {
-    icon: <Shield className="h-6 w-6 text-orange-500" />,
+    icon: <Shield className="h-8 w-8 text-purple-500" />,
     title: "Xavfsizlik",
-    description: "Git kodni buzilishdan himoya qiladi. Agar xato bo'lsa, eski versiyaga qaytish mumkin.",
-    example: "Kodning 'backup' nusxasi bo'lishi kabi - har doim xavfsiz."
-  }
-]
-
-const gitVsWithoutGit = [
-  {
-    title: "Git Bilan",
-    icon: <CheckCircle className="h-5 w-5 text-green-500" />,
-    items: [
-      "Har bir o'zgarish saqlanadi",
-      "Istalgan vaqtda eski versiyaga qaytish",
-      "Bir necha kishi bir loyihada ishlay oladi",
-      "Xatolarni osongina tuzatish",
-      "Kodning tarixini ko'rish",
-      "Professional ishlash usuli"
-    ]
+    description: "SHA-1 hash orqali ma'lumotlar yaxlitligi kafolatlanadi.",
   },
   {
-    title: "Git Siz",
-    icon: <FileText className="h-5 w-5 text-red-500" />,
-    items: [
-      "Fayllarni qo'lda saqlash",
-      "Eski versiyalarni yo'qotish xavfi",
-      "Bir kishi ishlay oladi",
-      "Xatolarni tuzatish qiyin",
-      "Tarixni bilmaslik",
-      "Professional bo'lmagan usul"
-    ]
-  }
+    icon: <Zap className="h-8 w-8 text-orange-500" />,
+    title: "Tezlik",
+    description: "Local operatsiyalar juda tez. Network kerak emas.",
+  },
 ]
 
 const gitWorkflow = [
   {
-    step: 1,
-    icon: <Code className="h-6 w-6 text-blue-500" />,
-    title: "Kod Yozish",
-    description: "Dasturchi kod yozadi va fayllarni o'zgartiradi"
+    step: "1",
+    title: "Working Directory",
+    description: "Fayllaringiz ustida ishlaysiz",
+    icon: <GitCommit className="h-6 w-6 text-blue-500" />,
   },
   {
-    step: 2,
-    icon: <GitBranch className="h-6 w-6 text-emerald-500" />,
-    title: "Staging",
-    description: "O'zgarishlarni Git'ga qo'shish uchun tayyorlash"
+    step: "2",
+    title: "Staging Area",
+    description: "O'zgarishlarni commit uchun tayyorlaysiz",
+    icon: <CheckCircle className="h-6 w-6 text-emerald-500" />,
   },
   {
-    step: 3,
-    icon: <GitCommit className="h-6 w-6 text-purple-500" />,
-    title: "Commit",
-    description: "O'zgarishlarni Git tarixiga saqlash"
+    step: "3",
+    title: "Repository",
+    description: "O'zgarishlar doimiy saqlanadi",
+    icon: <History className="h-6 w-6 text-purple-500" />,
   },
-  {
-    step: 4,
-    icon: <Globe className="h-6 w-6 text-orange-500" />,
-    title: "Push",
-    description: "O'zgarishlarni GitHub yoki boshqa serverga yuborish"
-  }
 ]
 
-const gitBenefits = [
+const gitFeatures = [
   {
-    icon: <Zap className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-blue-500" />,
-    title: "Tezlik",
-    description: "Git juda tez ishlaydi va kichik joy egallaydi"
+    icon: <GitBranch className="h-5 w-5" />,
+    title: "Branching",
+    description: "Parallel rivojlantirish",
   },
   {
-    icon: <Shield className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-emerald-500" />,
-    title: "Xavfsizlik",
-    description: "Kodning buzilishidan himoya qiladi"
+    icon: <GitMerge className="h-5 w-5" />,
+    title: "Merging",
+    description: "O'zgarishlarni birlashtirish",
   },
   {
-    icon: <Users className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-purple-500" />,
-    title: "Hamkorlik",
-    description: "Jamoaviy ishlashni osonlashtiradi"
+    icon: <History className="h-5 w-5" />,
+    title: "History",
+    description: "To'liq tarix va versiyalar",
   },
   {
-    icon: <History className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-orange-500" />,
-    title: "Tarix",
-    description: "Barcha o'zgarishlarni saqlab boradi"
-  }
+    icon: <Globe className="h-5 w-5" />,
+    title: "Remote",
+    description: "Masofaviy repository'lar",
+  },
+  {
+    icon: <Lock className="h-5 w-5" />,
+    title: "Security",
+    description: "Kriptografik xavfsizlik",
+  },
+  {
+    icon: <Workflow className="h-5 w-5" />,
+    title: "Workflow",
+    description: "Moslashuvchan ish jarayoni",
+  },
 ]
 
 export function GitIntroductionSection() {
   return (
-    <Section background="muted" className="py-12 sm:py-16 md:py-20 lg:py-24">
+    <Section className="py-12 sm:py-16 md:py-20 lg:py-24">
       <Container maxWidth="6xl">
+        {/* Header */}
         <SectionHeader
-          badge="Git Asoslari"
-          title="Git Nima va Nima Uchun Kerak?"
-          description="Git haqida to'liq ma'lumot va nima uchun har bir dasturchi Git'ni bilishi kerakligi"
-          className="mb-12 sm:mb-16 md:mb-20"
+          title="Git nima va nima uchun muhim?"
+          description="Version control tizimi sifatida Git'ning afzalliklari va imkoniyatlari"
+          className="mb-12 sm:mb-16 animate-fade-in-up"
         />
 
-        {/* Git nima? */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-6">
-              Git Nima?
-            </h3>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-              Git - bu <strong className="text-blue-600 dark:text-blue-400">Version Control System</strong> (Versiya Boshqarish Tizimi). 
-              Bu dasturchilar uchun kodning har bir o'zgarishini saqlab boruvchi maxsus dastur.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {gitConcepts.map((concept, index) => (
-              <Card key={index} className="git-card hover-lift glassmorphism-card dark:glassmorphism-card-dark animate-fade-in-up h-full" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    {concept.icon}
-                  </div>
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 sm:mb-3">
-                    {concept.title}
-                  </h4>
-                  <p className="text-slate-600 dark:text-slate-400 mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm flex-grow">
-                    {concept.description}
-                  </p>
-                  <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-2 sm:p-3 mt-auto">
-                    <p className="text-xs text-blue-700 dark:text-blue-300 font-medium">
-                      💡 {concept.example}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Git bilan vs Git siz */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-6">
-              Git Bilan vs Git Siz
-            </h3>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto px-4 sm:px-0">
-              Git ishlatganingizda va ishlatmaganingizda qanday farq bor?
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-            {gitVsWithoutGit.map((comparison, index) => (
-              <Card key={index} className={`git-card hover-lift glassmorphism-card dark:glassmorphism-card-dark animate-fade-in-up h-full ${index === 0 ? 'ring-2 ring-green-500/20' : 'ring-2 ring-red-500/20'}`} style={{ animationDelay: `${index * 0.2}s` }}>
-                <CardContent className="p-4 sm:p-6 h-full flex flex-col">
-                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    {comparison.icon}
-                    <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100">
-                      {comparison.title}
-                    </h4>
-                  </div>
-                  <ul className="space-y-2 sm:space-y-3 flex-grow">
-                    {comparison.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center gap-2 sm:gap-3">
-                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${index === 0 ? 'bg-green-500' : 'bg-red-500'}`}></div>
-                        <span className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Git ishlash jarayoni */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-6">
-              Git Qanday Ishlaydi?
-            </h3>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto px-4 sm:px-0">
-              Git'da kod bilan ishlashning asosiy jarayoni
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
-            {gitWorkflow.map((step, index) => (
-              <div key={index} className="relative animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <Card className="git-card hover-lift glassmorphism-card dark:glassmorphism-card-dark h-full">
-                  <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto mb-4 sm:mb-5">
-                      {step.icon}
-                    </div>
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto mb-3 sm:mb-4 text-sm sm:text-base font-bold">
-                      {step.step}
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 sm:mb-4">
-                      {step.title}
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base flex-grow">
-                      {step.description}
-                    </p>
-                  </CardContent>
-                </Card>
-                
-                {/* Arrow connector */}
-                {index < gitWorkflow.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-5 transform -translate-y-1/2">
-                    <ArrowRight className="h-6 w-6 text-slate-400" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Git afzalliklari */}
+        {/* Git Benefits */}
         <div className="mb-16 sm:mb-20">
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-6">
-              Git Afzalliklari
+          <div className="text-center mb-12 animate-fade-in-up [animation-delay:0.2s]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+              Git'ning Asosiy Afzalliklari
             </h3>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Nima uchun Git eng mashhur version control tizimi?
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-10 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {gitBenefits.map((benefit, index) => (
-              <Card key={index} className="git-card hover-lift glassmorphism-card dark:glassmorphism-card-dark animate-fade-in-up h-full" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-8 sm:p-10 text-center h-full flex flex-col">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-blue-50 to-emerald-50 dark:from-blue-950/30 dark:to-emerald-950/30 flex items-center justify-center mx-auto mb-5 sm:mb-6">
+              <Card
+                key={index}
+                className="hover:shadow-lg transition-all duration-300 h-full hover-lift animate-fade-in-up"
+                style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+              >
+                <CardContent className="p-8 text-center h-full flex flex-col">
+                  <div className="w-20 h-20 rounded-full bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 dark:hover:bg-blue-950/50 flex items-center justify-center mx-auto mb-6 transition-colors duration-300 hover:scale-110 transform">
                     {benefit.icon}
                   </div>
-                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mb-4 sm:mb-5">
-                    {benefit.title}
-                  </h4>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base flex-grow">
+                  <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">{benefit.title}</h4>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base flex-grow">
                     {benefit.description}
                   </p>
                 </CardContent>
@@ -279,35 +140,109 @@ export function GitIntroductionSection() {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <Card className="git-card hover-glow glassmorphism-card dark:glassmorphism-card-dark max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Terminal className="h-10 w-10 text-blue-500 animate-git-pulse" />
-                <GitBranch className="h-8 w-8 text-emerald-500 animate-git-pulse" style={{ animationDelay: '1s' }} />
-                <GitCommit className="h-10 w-10 text-purple-500 animate-git-pulse" style={{ animationDelay: '2s' }} />
+        {/* Git Workflow */}
+        <div className="mb-16 sm:mb-20">
+          <div className="text-center mb-12 animate-fade-in-up [animation-delay:0.7s]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Git Ish Jarayoni</h3>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Git qanday ishlaydi va asosiy tushunchalar
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {gitWorkflow.map((step, index) => (
+              <div
+                key={index}
+                className="relative animate-fade-in-up"
+                style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+              >
+                <Card className="hover:shadow-lg transition-all duration-300 hover-lift">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:scale-110">
+                      {step.icon}
+                    </div>
+                    <Badge
+                      variant="outline"
+                      className="mb-4 hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-colors duration-200"
+                    >
+                      {step.step}-bosqich
+                    </Badge>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">{step.title}</h4>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
+                  </CardContent>
+                </Card>
+
+                {/* Arrow between steps */}
+                {index < gitWorkflow.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="h-8 w-8 text-slate-400 animate-pulse" />
+                  </div>
+                )}
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-                Git'ni O'rganishga Tayyormisiz?
+            ))}
+          </div>
+        </div>
+
+        {/* Git Features Grid */}
+        <div className="mb-16 sm:mb-20">
+          <div className="text-center mb-12 animate-fade-in-up [animation-delay:1.1s]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+              Git'ning Asosiy Imkoniyatlari
+            </h3>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Professional dasturlashda kerak bo'ladigan barcha vositalar
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {gitFeatures.map((feature, index) => (
+              <Card
+                key={index}
+                className="hover:shadow-lg transition-all duration-300 hover-lift hover:border-blue-300 dark:hover:border-blue-700 animate-fade-in-up"
+                style={{ animationDelay: `${1.2 + index * 0.05}s` }}
+              >
+                <CardContent className="p-6 text-center">
+                  <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110">
+                    {feature.icon}
+                  </div>
+                  <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2 text-sm">{feature.title}</h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center animate-fade-in-up [animation-delay:1.5s]">
+          <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800 hover:shadow-lg transition-all duration-300 hover-lift">
+            <CardContent className="p-8 sm:p-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+                Git'ni o'rganishga tayyormisiz?
               </h3>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-                Git'ni professional darajada o'rganish uchun bizning platformamizdan foydalaning. 
-                Interaktiv darslar va real loyihalar bilan Git ustasiga aylaning!
+              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+                Interaktiv darslar va terminal orqali Git'ni professional darajada o'rganing. Hamma narsa bepul va
+                o'zbek tilida!
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Badge variant="outline" className="text-sm px-4 py-2 git-card">
-                  <BookOpen className="mr-2 h-4 w-4" />
-                  5 ta Professional Dars
-                </Badge>
-                <Badge variant="outline" className="text-sm px-4 py-2 git-card">
-                  <Terminal className="mr-2 h-4 w-4" />
-                  Interaktiv Terminal
-                </Badge>
-                <Badge variant="outline" className="text-sm px-4 py-2 git-card">
-                  <CheckCircle className="mr-2 h-4 w-4" />
-                  100% Bepul
-                </Badge>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="hover:scale-105 transition-transform duration-200" asChild>
+                  <Link href="/lessons">
+                    <GitBranch className="mr-2 h-5 w-5" />
+                    Darslarni Boshlash
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="hover:scale-105 transition-transform duration-200 hover:border-blue-300 dark:hover:border-blue-700 bg-transparent"
+                  asChild
+                >
+                  <Link href="/practice">
+                    <Zap className="mr-2 h-5 w-5" />
+                    Terminal Demo
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>
